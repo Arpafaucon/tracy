@@ -486,7 +486,7 @@ bool receive_client_broadcast(tracy::UdpListen* socket, BroadcastClient* out)
 	{
 		if (msgLen > sizeof(tracy::BroadcastMessage))
 		{
-			std::cout << "Received unexpected size broadcast v2 message" << std::endl;
+			std::cout << "Received unexpected size broadcast v3 message" << std::endl;
 			return false;
 		}
 		tracy::BroadcastMessage bm;
@@ -730,7 +730,11 @@ bool handle_client_response(ClientConnection& connection, const tracy::QueueItem
 		std::cout << "Error: AckServerQueryNoop response without matching request" << std::endl;
 		return true;
 	default:
-		assert(ev->hdr.idx >= (int)tracy::QueueType::StringData);
+		if (ev->hdr.idx < (int)tracy::QueueType::StringData)
+		{
+			std::cout << "Got supposedly weird type " << (int)ev->hdr.idx << std::endl;
+			assert(ev->hdr.idx >= (int)tracy::QueueType::StringData);
+		}
 		for (auto& req : unresolvedPriorityRequests)
 		{
 			switch (req.request.type)

@@ -22,3 +22,11 @@ set(PROGRAM_FILES
 
 add_executable(${PROJECT_NAME} ${PROGRAM_FILES} ${COMMON_FILES} ${SERVER_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE TracyServer TracyGetOpt)
+
+
+add_executable(
+    sample_process
+    src/sample_process.cpp
+    )
+target_compile_definitions(sample_process PUBLIC TRACY_ENABLE)
+target_link_libraries(sample_process TracyClient)
