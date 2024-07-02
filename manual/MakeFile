@@ -1,0 +1,11 @@
+# Notice we don't need complex dependency management here in this Makefile because latexmk takes care of it all
+
+.PHONY: usermanual techdoc all
+
+usermanual:
+	latexmk -pdf tracy.tex
+
+techdoc:
+	latexmk -pdf techdoc.tex
+
+all: usermanual techdoc
