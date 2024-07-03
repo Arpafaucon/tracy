@@ -1,0 +1,27 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "clang",
+            "displayName": "Clang 15.0.7 x86_64-pc-linux-gnu",
+            "description": "Using compilers: C = /usr/bin/clang-15, CXX = /usr/bin/clang++-15",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+                "CMAKE_C_COMPILER": "/usr/bin/clang-15",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++-15",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+
+            "generator": "Ninja"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "clang",
+            "configurePreset": "clang"
+
+        }
+    ]
+}
