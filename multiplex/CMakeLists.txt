@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 project(
     tracy-multiplex
-    LANGUAGES ASM C CXX
+    LANGUAGES C CXX ASM
     VERSION ${TRACY_VERSION_STRING}
 )
 
@@ -25,8 +25,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE TracyServer TracyGetOpt)
 
 
 add_executable(
-    sample_process
-    src/sample_process.cpp
+    tracy-merge
+    src/merger.cpp
+    ${COMMON_FILES} ${SERVER_FILES}
     )
-target_compile_definitions(sample_process PUBLIC TRACY_ENABLE)
-target_link_libraries(sample_process TracyClient)
+target_compile_definitions(tracy-merge PUBLIC TRACY_ENABLE=1)
+target_link_libraries(tracy-merge TracyServer)

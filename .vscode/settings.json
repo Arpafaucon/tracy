@@ -1,4 +1,5 @@
 {
+    "C_Cpp.intelliSenseEngine": "disabled",
     "cmake.configureOnOpen": true,
     "cmake.sourceDirectory": [
         "${workspaceFolder}/profiler",
@@ -7,6 +8,7 @@
         "${workspaceFolder}/import-chrome",
         "${workspaceFolder}/import-fuchsia",
         "${workspaceFolder}/update",
+        "${workspaceFolder}/multiplex",
         "${workspaceFolder}/test",
         "${workspaceFolder}",
     ],

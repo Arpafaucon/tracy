@@ -677,7 +677,7 @@ public:
 
     StringLocation StoreString(const char* str, size_t sz);
 
-private:
+public:
     void Network();
     void Exec();
     void Query( ServerQuery type, uint64_t data, uint32_t extra = 0 );
