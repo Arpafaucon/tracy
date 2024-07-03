@@ -1,0 +1,69 @@
+# .clangd configuration file
+# used for now only as a mean to point the language server
+# to the appropriate compilation database
+
+# special case: we include server/.* here
+# because that's one of the target using it
+If:
+  PathMatch: [capture/.*, server/.*]
+
+CompileFlags:
+  CompilationDatabase: capture/build
+
+---
+
+If:
+  PathMatch: csvexport/.*
+
+CompileFlags:
+  CompilationDatabase: csvexport/build
+
+---
+
+If:
+  PathMatch: import-chrome/.*
+
+CompileFlags:
+  CompilationDatabase: import-chrome/build
+
+---
+
+If:
+  PathMatch: import-fuchsia/.*
+
+CompileFlags:
+  CompilationDatabase: import-fuchsia/build
+
+---
+
+If:
+  PathMatch: multiplex/.*
+
+CompileFlags:
+  CompilationDatabase: multiplex/build
+
+---
+
+If:
+  PathMatch: profiler/.*
+
+CompileFlags:
+  CompilationDatabase: profiler/build
+
+---
+
+If:
+  PathMatch: update/.*
+
+CompileFlags:
+  CompilationDatabase: update/build
+
+---
+
+If:
+  PathMatch: test/.*
+
+CompileFlags:
+  CompilationDatabase: test/build
+
+---
